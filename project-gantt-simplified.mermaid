@@ -1,0 +1,22 @@
+gantt
+    title Open Banking Management Platform Development Timeline
+    dateFormat YYYY-MM-DD
+    axisFormat %d/%m/%Y
+    
+    section Requirements Analysis
+    Collect Requirements      :req1, 2024-11-01, 1w
+    Research Banking APIs     :req2, after req1, 1w
+    
+    section System Design
+    Architecture Design       :des1, after req2, 2w
+    UI/UX Prototypes         :des2, after des1, 1w
+    
+    section Development
+    Frontend Development     :dev1, after des2, 4w
+    Backend Development      :dev2, after des2, 4w
+    API Integration          :dev3, after dev1, 4w
+    
+    section Testing
+    Functional Testing       :test1, after dev3, 2w
+    Non-functional Testing   :test2, after test1, 1w
+    User Acceptance Testing  :test3, after test2, 1w

@@ -1,0 +1,35 @@
+flowchart TD
+    subgraph Authentication
+        U[User] --> F1[Frontend: Login Screen]
+        F1 --> AA[Appwrite Authentication]
+        AA --> S[Sentry Error Monitoring]
+        S --> SM[Session Management]
+    end
+
+    subgraph Account_Linking
+        U --> F2[Frontend: Link Account]
+        F2 --> P[Plaid API]
+        P --> B1[Backend]
+        B1 --> LS[Linked Service]
+        LS --> BA[Bank Account]
+    end
+
+    subgraph Transaction_and_Budget
+        U --> F3[Frontend: Transaction/Budget Overview]
+        F3 --> B2[Backend]
+        B2 --> TB[Transaction/Budget Entities]
+        TB --> DD[Display Data]
+    end
+
+    subgraph Fund_Transfers
+        U --> F4[Frontend: Transfer Funds]
+        F4 --> D[Dwolla API]
+        D --> B3[Backend]
+        B3 --> PE[Payment Entity]
+        PE --> CD[Confirmation Display]
+    end
+
+    style Authentication fill:#f9f,stroke:#333,stroke-width:2px
+    style Account_Linking fill:#bbf,stroke:#333,stroke-width:2px
+    style Transaction_and_Budget fill:#bfb,stroke:#333,stroke-width:2px
+    style Fund_Transfers fill:#ffb,stroke:#333,stroke-width:2px

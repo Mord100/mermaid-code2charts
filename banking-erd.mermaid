@@ -1,0 +1,49 @@
+erDiagram
+    User ||--o{ BankAccount : has
+    User ||--o{ Budget : manages
+    User ||--o{ Payment : initiates
+    User ||--o{ LinkedService : connects
+    BankAccount ||--o{ Transaction : contains
+    BankAccount ||--o{ Payment : "from/to"
+
+    User {
+        string user_id PK
+        string name
+        string email
+        string password_hash
+    }
+
+    BankAccount {
+        string account_id PK
+        string user_id FK
+        string bank_name
+        string account_type
+    }
+
+    Transaction {
+        string transaction_id PK
+        string account_id FK
+        float amount
+        date transaction_date
+    }
+
+    Budget {
+        string budget_id PK
+        string user_id FK
+        string category
+        float amount_allocated
+    }
+
+    Payment {
+        string payment_id PK
+        string user_id FK
+        string from_account_id FK
+        string to_account_id FK
+        float amount
+    }
+
+    LinkedService {
+        string service_id PK
+        string user_id FK
+        string service_name
+    }
